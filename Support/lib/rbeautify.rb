@@ -28,7 +28,6 @@ require File.dirname(__FILE__) + '/rbeautify/line.rb'
 
 require File.dirname(__FILE__) + '/rbeautify/config/ruby.rb'
 
-
 module RBeautify
 
   def RBeautify.beautify_string(language, source)
@@ -44,6 +43,8 @@ module RBeautify
       dest += line.format + "\n"
       block = line.block
     end
+
+    dest.gsub!(/^\s+$/, "")
 
     return dest
   end
@@ -76,7 +77,6 @@ module RBeautify
       RBeautify.beautify_file(path)
     end
   end # main
-
 
 end # module RBeautify
 
